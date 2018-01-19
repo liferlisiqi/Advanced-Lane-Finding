@@ -17,6 +17,7 @@ objpoints = []
 imgpoints = []
 
 images = glob.glob("calibration_wide/GOPR00*.jpg")
+print(images)
 for frame in images:
     img = cv2.imread(frame)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -41,6 +42,7 @@ for frame in images:
 
 # where do i define gray?
 img = cv2.imread("calibration_wide/test_image.jpg")
+print(img)
 img_size = (img.shape[1], img.shape[0])
 ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, img_size, None, None)
 
