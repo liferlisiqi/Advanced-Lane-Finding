@@ -6,6 +6,8 @@ import glob
 from moviepy.editor import VideoFileClip
 
 
+
+
 def undistort():
     objp = np.zeros((6 * 9, 3), np.float32)
     objp[:, :2] = np.mgrid[0:9, 0:6].transpose().reshape(-1, 2)
