@@ -13,18 +13,18 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./output_images/origin.jpg =400* "origin"
-[image2]: ./output_images/undist.jpg =400* "undist"
-[image3]: ./output_images/roi.jpg "roi"
-[image4]: ./output_images/warp.jpg "warp"
-[image5]: ./output_images/binary.jpg "binary"
-[image6]: ./output_images/histogram.png "histogram"
-[image7]: ./output_images/window.png "window"
-[image8]: ./output_images/polynomial.png "polynomial"
-[image9]: ./output_images/result.jpg "result"
-[image10]: ./output_images/chessboard.jpg "result"
-[image11]: ./output_images/chessboard_undist.jpg "result"
-[video1]: ./project_result.mp4 "Video"
+[image1]: ./output_images/origin.jpg
+[image2]: ./output_images/undist.jpg
+[image3]: ./output_images/roi.jpg
+[image4]: ./output_images/warp.jpg
+[image5]: ./output_images/binary.jpg
+[image6]: ./output_images/histogram.png
+[image7]: ./output_images/window.png
+[image8]: ./output_images/polynomial.png
+[image9]: ./output_images/result.jpg
+[image10]: ./output_images/chessboard.jpg
+[image11]: ./output_images/chessboard_undist.jpg
+[video1]: ./project_result.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -51,7 +51,7 @@ I applied this distortion correction to the test image using the `cv2.undistort(
 #### 1. Undistort 
 
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
-![alt text][image1] ![alt text][image2]
+![alt text](./output_images/origin.jpg = 400*) ![alt text][image2]
 
 
 #### 2. Region of interest
