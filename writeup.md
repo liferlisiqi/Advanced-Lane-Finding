@@ -95,16 +95,16 @@ I used a combination of color and gradient thresholds to generate a binary image
 
 
 #### 4. Histogram
-his
+his  
 ![alt text][image6]
 
 #### 6. Sliding windows
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:  
 ![alt text][image7]
 
 #### 7. Fit polynomial
-poly
+poly  
 ![alt text][image8]
 
 #### 8. Radius of curvature and position to center.
