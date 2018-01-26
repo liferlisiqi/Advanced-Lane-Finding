@@ -55,7 +55,9 @@ To demonstrate this step, I will describe how I apply the distortion correction 
 
 
 #### 2. Region of interest
+roi
 ![alt text][image3]
+
 
 #### 3. Perspective transform
 
@@ -84,25 +86,25 @@ This resulted in the following source and destination points:
 | 695, 460      | 960, 0        |
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
-
 ![alt text][image4]
-
-#### 4. Histogram
-![alt text][image5]
 
 #### 5. Binary
 
 I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
+![alt text][image5]
 
+
+#### 4. Histogram
+his
 ![alt text][image6]
 
 #### 6. Sliding windows
 
 Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
-
 ![alt text][image7]
 
 #### 7. Fit polynomial
+poly
 ![alt text][image8]
 
 #### 8. Radius of curvature and position to center.
@@ -112,7 +114,6 @@ I did this in lines # through # in my code in `my_other_file.py`
 #### 9. Rewarp
 
 I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
-
 ![alt text][image9]
 
 ---
