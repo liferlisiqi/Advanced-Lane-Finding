@@ -13,8 +13,8 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./output_images/origin.jpg "origin"
-[image2]: ./output_images/undist.jpg "undist"
+[image1]: ./output_images/origin.jpg =400* "origin"
+[image2]: ./output_images/undist.jpg =400* "undist"
 [image3]: ./output_images/roi.jpg "roi"
 [image4]: ./output_images/warp.jpg "warp"
 [image5]: ./output_images/binary.jpg "binary"
