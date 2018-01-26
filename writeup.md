@@ -51,43 +51,42 @@ I applied this distortion correction to the test image using the `cv2.undistort(
 #### 1. Undistort 
 
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
-![alt text](./output_images/origin.jpg =640*320)
+Before:  
+![alt text][image1]
+after:  
 ![alt text][image2]
 
 
 #### 2. Region of interest
+After undistorting, my next step is not binaring the image as suggested, I choose to find the region of interest instead. In my opinion, it is more easy to process a little part of undistorted image and binary is very important in this project. The coordinate of corner points of ROI is as follows:  
+| Point         | coordinate    |
+|:-------------:|:-------------:|
+| left top      | 560, 450      |
+| right top     | 740, 450      |
+| right bottom  | 1160, 672     |
+| left bottom   | 200, 672      |  
+Then, the method to get ROI is the same as in the first project: finding lane lines. The result is as follows:
 roi
 ![alt text][image3]
 
 
 #### 3. Perspective transform
 
-The code for my perspective transform includes a function called `warper()`, which appears in lines 1 through 8 in the file `example.py` (output_images/examples/example.py) (or, for example, in the 3rd code cell of the IPython notebook).  The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
+The code for my perspective transform includes a function called `warper()`.  The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
 
+Firstly, I use function `getPerspectiveTransform( )` to calculte the transform matrix. `src` is the region to be warped, and of course, this region is ROI. `dst` is the position to put the warped image, I choose an image with 1280 * 720 just as the origin image.
 ```python
-src = np.float32(
-    [[(img_size[0] / 2) - 55, img_size[1] / 2 + 100],
-    [((img_size[0] / 6) - 10), img_size[1]],
-    [(img_size[0] * 5 / 6) + 60, img_size[1]],
-    [(img_size[0] / 2 + 55), img_size[1] / 2 + 100]])
-dst = np.float32(
-    [[(img_size[0] / 4), 0],
-    [(img_size[0] / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), 0]])
+M = cv2.getPerspectiveTransform(src, dst)
 ```
-
-This resulted in the following source and destination points:
-
-| Source        | Destination   | 
-|:-------------:|:-------------:| 
-| 585, 460      | 320, 0        | 
-| 203, 720      | 320, 720      |
-| 1127, 720     | 960, 720      |
-| 695, 460      | 960, 0        |
+Then, I'll use funtion `cv2.warpPerspective( )` to transform the ROI 
+```python
+warped = cv2.warpPerspective(img, M, (1280, 720), flags=cv2.INTER_LINEAR)
+```
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 ![alt text][image4]
+
+In this step, I don't think the lane lines in the warped image must be paralled. Cause the warped image is used for find the warped lane lines, and after, you have rewarp it back. So, it doesn't whether the lane lines are paralled or not, only if you can find the lane lines.
 
 #### 5. Binary
 
