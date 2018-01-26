@@ -51,7 +51,8 @@ I applied this distortion correction to the test image using the `cv2.undistort(
 #### 1. Undistort 
 
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
-![alt text](./output_images/origin.jpg = 400*) ![alt text][image2]
+![alt text](./output_images/origin.jpg =640*320)
+![alt text][image2]
 
 
 #### 2. Region of interest
