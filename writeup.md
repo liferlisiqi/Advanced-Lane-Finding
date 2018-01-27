@@ -89,38 +89,43 @@ I verified that my perspective transform was working as expected by drawing the 
 In this step, I don't think the lane lines in the warped image must be paralled. Cause the warped image is used for find the warped lane lines, and after, you have rewarp it back. So, it doesn't whether the lane lines are paralled or not, only if you can find the lane lines.
 
 #### 5. Binary
+In this step, I'll generate a binary image of the warped ROI. The threshold in my method is a combination of color and gradient. The lane lines are almost vertical, thus, I use the gradient in the x direction to detect them. However, when something unexpected appearing in the image, it may be recognized as lane lines by mistake. To solve this problem, I use saturation channel in HLS color space to perform and operation. Moreover, I also use the lightness channel to improved my method.  
 
-I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
+The binary image of the warped ROI is as follows:
 ![alt text][image5]
 
 
 #### 4. Histogram
-his  
+Before finding the pixels of lane lines, finding the region where the lane lines most likely are will make thinkg easier. Calculate the histogram is a way to help us as follows. The two peaks are x coordinate of most pixels of lane lines. 
 ![alt text][image6]
 
 #### 6. Sliding windows
-
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:  
+This step suggested in course is very useful, it slides a window automatically to scan the most likely region of lane line pixels.
 ![alt text][image7]
 
+Once the pixels of lane lines have been found, there is no need to perform this step every time.
+
 #### 7. Fit polynomial
-poly  
+Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:   
 ![alt text][image8]
 
 #### 8. Radius of curvature and position to center.
-
-I did this in lines # through # in my code in `my_other_file.py`
+The radius of curvature are calculate by following equation:
+$$
+R = \frac{[1 + (2Ay + B)^2]^{3/2}}{|2A|}  
+$$
+And the postion to center is the distance between middle of image(640) and the middel of lane lines at the bottom.
 
 #### 9. Rewarp
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+The final step is to rewarp the above result to the undistorted image. Then, the pipeline to find lane lines is completed and it will be used to process the video.
 ![alt text][image9]
 
 ---
 
 ### Pipeline (video)
 
-#### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
+I don't how to process a video as in the first project: finding lane line, so I use `extract.py`(./extract.py) to extract every frame and `video.py`(./video.py) to combine these frame after processed.
 
 Here's a [link to my video result](./project_result.mp4)
 
@@ -137,6 +142,4 @@ I combine three kinds or parameters:  ((x-sobel | saturation) & lightness) to tr
 #### 3. Polynomial
 I use second polynomial as suggented in the course, and I've tried to make the left line and right line be paralleled by used weight. But this method it doesn't work, maybe my opinion is right, but I cannot realize it.
 
-
-
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+ 
