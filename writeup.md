@@ -42,18 +42,20 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 
 ### 2. An example of a distortion corrected calibration image.
 
-I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
-
-![alt text][image10] ![alt text][image11]
+I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result:   
+Before:  
+![alt text][image10] 
+After:  
+![alt text][image11]
 
 ### Pipeline (single images)
 
 #### 1. Undistort 
 
-To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
+To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:  
 Before:  
 ![alt text][image1]
-after:  
+After:  
 ![alt text][image2]
 
 
