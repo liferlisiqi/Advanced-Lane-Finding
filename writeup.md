@@ -61,14 +61,15 @@ After:
 
 #### 2. Region of interest
 After undistorting, my next step is not binaring the image as suggested, I choose to find the region of interest instead. In my opinion, it is more easy to process a little part of undistorted image and binary is very important in this project. The coordinate of corner points of ROI is as follows:  
+
 | Point         | coordinate    |
 |:-------------:|:-------------:|
 | left top      | 560, 450      |
 | right top     | 740, 450      |
 | right bottom  | 1160, 672     |
 | left bottom   | 200, 672      |  
+
 Then, the method to get ROI is the same as in the first project: finding lane lines. The result is as follows:
-roi
 ![alt text][image3]
 
 
@@ -112,10 +113,8 @@ Then I did some other stuff and fit my lane lines with a 2nd order polynomial ki
 ![alt text][image8]
 
 #### 8. Radius of curvature and position to center.
-The radius of curvature are calculate by following equation:
-$$
-R = \frac{[1 + (2Ay + B)^2]^{3/2}}{|2A|}  
-$$
+The radius of curvature are calculate by following equation:  
+$$R = \frac{[1 + (2Ay + B)^2]^{3/2}}{|2A|}$$  
 And the postion to center is the distance between middle of image(640) and the middel of lane lines at the bottom.
 
 #### 9. Rewarp
@@ -129,7 +128,7 @@ The final step is to rewarp the above result to the undistorted image. Then, the
 
 I don't how to process a video as in the first project: finding lane line, so I use `extract.py`(./extract.py) to extract every frame and `video.py`(./video.py) to combine these frame after processed.
 
-Here's a [link to my video result](./project_result.mp4)
+Here's a [link](./project_result.mp4) to my result of project_video.mp4
 
 ---
 
