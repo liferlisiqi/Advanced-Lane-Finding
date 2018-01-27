@@ -114,7 +114,7 @@ Then I did some other stuff and fit my lane lines with a 2nd order polynomial ki
 
 #### 8. Radius of curvature and position to center.
 The radius of curvature are calculate by following equation:  
-$R = \frac{[1 + (2Ay + B)^2]^{3/2}}{|2A|}$  
+$$R = [1 + (2Ay + B)^2]^3/2 / |2A|$$
 And the postion to center is the distance between middle of image(640) and the middel of lane lines at the bottom.
 
 #### 9. Rewarp
