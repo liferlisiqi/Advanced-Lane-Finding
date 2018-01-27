@@ -126,7 +126,7 @@ The final step is to rewarp the above result to the undistorted image. Then, the
 
 ### Pipeline (video)
 
-I don't how to process a video as in the first project: finding lane line, so I use `extract.py`(./extract.py) to extract every frame and `video.py`(./video.py) to combine these frame after processed.
+I don't how to process a video as in the first project: finding lane line, so I use [extract.py](./extract.py) to extract every frame and [video.py](./video.py) to combine these frame after processed.
 
 Here's a [link](./project_result.mp4) to my result of project_video.mp4
 
