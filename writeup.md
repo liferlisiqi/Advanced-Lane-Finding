@@ -143,4 +143,11 @@ I combine three kinds or parameters:  ((x-sobel | saturation) & lightness) to tr
 #### 3. Polynomial
 I use second polynomial as suggented in the course, and I've tried to make the left line and right line be paralleled by used weight. But this method it doesn't work, maybe my opinion is right, but I cannot realize it.
 
+#### 4. Bad weather
+This algorithm is based on the computer vision, which will be influenced a lot by weather, such as: sunny, rain, snow and so on. To overcome this disadvantage, more sensor should be used and deep learning is also suggested.
+
+#### 5. Speed
+The speed in the video is not too fast, if the car is on the highway, the images captured by camera may not be clear enough and will not be processed in time. To solve this problem, one way is to propose an algorithm for this case.
+
+
  
