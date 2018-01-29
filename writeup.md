@@ -64,10 +64,10 @@ After undistorting, my next step is not binaring the image as suggested, I choos
 
 | Point         | coordinate    |
 |:-------------:|:-------------:|
-| left top      | 560, 450      |
-| right top     | 740, 450      |
-| right bottom  | 1160, 672     |
-| left bottom   | 200, 672      |  
+| left top      | 580, 450      |
+| right top     | 730, 450      |
+| right bottom  | 1200, 672     |
+| left bottom   | 150, 672      |  
 
 Then, the method to get ROI is the same as in the first project: finding lane lines. The result is as follows:
 ![alt text][image3]
